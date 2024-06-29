@@ -1,0 +1,10 @@
+.nav {
+  background-color: #ffffff !important;
+  box-shadow: #2123261a 0 10px 10px -10px;
+}
+
+.nav-logo {
+  padding: 0 !important;
+  width: 90px !important;
+  height: auto !important;
+}
