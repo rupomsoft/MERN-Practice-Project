@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import {
   CartesianGrid,
   Legend,
@@ -25,22 +25,17 @@ const LineChartComponent = () => (
   <Container>
     <Row className="justify-content-md-center">
       <Col md={8}>
-        <Card>
-          <Card.Header>Line Chart Example</Card.Header>
-          <Card.Body>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-              </LineChart>
-            </ResponsiveContainer>
-          </Card.Body>
-        </Card>
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          </LineChart>
+        </ResponsiveContainer>
       </Col>
     </Row>
   </Container>
