@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import useScanDetection from "use-scan-detection";
 import productsData from "../utils/data";
 
 const Products = () => {
@@ -7,42 +8,62 @@ const Products = () => {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Function to handle adding a product to the cart
-  const addToCart = (product) => {
-    // Check if the product is already in the cart
-    const isAlreadyInCart = cart.some((item) => item.id === product.id);
+  const addToCart = (barcode) => {
+    const product = productsData.find(
+      (productItem) =>
+        productItem.barcode.toLowerCase().toString() ===
+        barcode.toLowerCase().toString()
+    );
+
+    if (!product) {
+      window.alert("No Barcode Product Found");
+      return;
+    }
+
+    const isAlreadyInCart = cart.some((item) => item.barcode === barcode);
 
     if (!isAlreadyInCart) {
       setCart([...cart, { ...product, quantity: 1 }]);
     } else {
-      // If already in cart, update the quantity
       const updatedCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.barcode === barcode
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       );
       setCart(updatedCart);
     }
   };
 
-  // Function to handle removing a product from the cart
-  const removeFromCart = (productId) => {
-    const updatedCart = cart.filter((item) => item.id !== productId);
+  const removeFromCart = (barcode) => {
+    const updatedCart = cart.filter((item) => item.barcode !== barcode);
     setCart(updatedCart);
   };
 
-  // Function to handle updating search term
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Filter products based on search term
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Function to handle auto-adding to cart when product is clicked
-  const handleProductClick = (product) => {
-    addToCart(product);
+  const handleProductClick = (barcode) => {
+    addToCart(barcode);
   };
+
+  const barcodeHandler = async (barcode) => {
+    addToCart(barcode);
+  };
+
+  /**
+   * searching barcode
+   */
+  useScanDetection({
+    onComplete: (barcode) => {
+      barcodeHandler(barcode);
+    },
+    minLength: 13,
+  });
 
   return (
     <Container>
@@ -52,9 +73,10 @@ const Products = () => {
             type="text"
             placeholder="Search for products..."
             value={searchTerm}
-            onChange={handleSearch} // Call handleSearch on input change
+            onChange={handleSearch}
           />
         </Col>
+        <input type="text" autoFocus hidden />
       </Row>
 
       <Row>
@@ -70,7 +92,7 @@ const Products = () => {
                     <Card.Text>Price: ${product.price}</Card.Text>
                     <Button
                       variant="primary"
-                      onClick={() => handleProductClick(product)} // Call handleProductClick to add product to cart
+                      onClick={() => handleProductClick(product.barcode)}
                     >
                       Add to Cart
                     </Button>
@@ -97,7 +119,7 @@ const Products = () => {
                       <Card.Text>Quantity: {item.quantity}</Card.Text>
                       <Button
                         variant="danger"
-                        onClick={() => removeFromCart(item.id)} // Call removeFromCart to remove product from cart
+                        onClick={() => removeFromCart(item.barcode)}
                       >
                         Remove
                       </Button>

@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-barcode-reader": "^0.0.2",
     "react-bootstrap": "^2.10.3",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "use-scan-detection": "^0.2.3"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

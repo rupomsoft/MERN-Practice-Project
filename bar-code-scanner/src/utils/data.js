@@ -5,7 +5,7 @@ const products = [
     price: "630",
     image:
       "http://www.subadmin.kistimath.com/storage/app/public/sOhBswsjXX26tNouqM6wZBVIzFKJn9RWPfQgOXSX.png",
-    barcode: "630",
+    barcode: "1234567890123",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     price: "512",
     image:
       "http://subadmin.kistimath.com/storage/app/public/PMVlvVZj2QKb5bMeHGTQI2p2GETnAn62VlYOVi8o.jpeg",
-    barcode: "630",
+    barcode: "1234567890124",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     price: "1200",
     image:
       "http://www.subadmin.kistimath.com/storage/app/public/opDlLLictetKmtcEqlKgzDTwkaNn75XNRopf9DKV.png",
-    barcode: "630",
+    barcode: "1234567890125",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     price: "450",
     image:
       "http://www.subadmin.kistimath.com/storage/app/public/v5fBcVO3NyzsXcrZslh2pXKWNFyozWLxsIO9rISk.png",
-    barcode: "630",
+    barcode: "88H-0000UB-001",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const products = [
     price: "399",
     image:
       "http://www.subadmin.kistimath.com/storage/app/public/dmBaD5mWD8ffXkULS5DuSTqHPrRGDmKxxBnEBSBf.png",
-    barcode: "630",
+    barcode: "8941100313466",
   },
 ];
 
