@@ -2,7 +2,7 @@ import jsPDF from "jspdf";
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
-const ImgToPage = () => {
+const Pdfimg = () => {
   const [photos, setPhotos] = useState([]);
   const [paperSize, setPaperSize] = useState("a4");
   const [marginSize, setMarginSize] = useState("normal");
@@ -10,6 +10,12 @@ const ImgToPage = () => {
 
   const onChangePhoto = (e) => {
     setPhotos([...photos, ...e.target.files]);
+  };
+
+  const removePhoto = (index) => {
+    const updatedPhotos = [...photos];
+    updatedPhotos.splice(index, 1);
+    setPhotos(updatedPhotos);
   };
 
   const getPageDimensions = () => {
@@ -89,14 +95,19 @@ const ImgToPage = () => {
       <Row className="mt-3">
         <Col lg={3}>
           {photos.map((photo, index) => (
-            <div key={index} className="my-4">
+            <div key={index}>
               <img
                 alt={`photo-${index}`}
                 width="250"
                 height="250"
-                className="shadow image-fit"
+                className="rounded-circle shadow image-fit"
                 src={URL.createObjectURL(photo)}
               />
+              <br />
+              <Button variant="danger" onClick={() => removePhoto(index)}>
+                Remove
+              </Button>
+              <br />
               <br />
             </div>
           ))}
@@ -167,4 +178,4 @@ const ImgToPage = () => {
   );
 };
 
-export default ImgToPage;
+export default Pdfimg;
