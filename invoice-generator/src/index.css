@@ -1,0 +1,76 @@
+body,
+html {
+  font-size: 0.9rem;
+  background: #f2f3f7;
+}
+body,
+.form-control {
+  font-size: 0.9rem;
+}
+
+.btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.66rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.05) !important;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.btn-light {
+  border-color: #dedede;
+}
+
+.btn-light:hover {
+  border-color: #dedede;
+  background-color: #f3f3f3;
+}
+
+.shadow {
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.05) !important;
+}
+
+.modal-content,
+.card {
+  overflow: hidden;
+  border-radius: 0.756rem;
+}
+
+hr {
+  opacity: 0.1;
+}
+
+.table th {
+  border-top: 1px solid #0000001a;
+  border-bottom: 1px solid #0000001a;
+  border-bottom-color: #0000001a !important;
+}
+.table td {
+  text-align: left;
+}
+.table tr th:first-child,
+.table tr td:first-child {
+  padding-left: 0;
+}
+.table tr th:last-child,
+.table tr td:last-child {
+  padding-right: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.nav {
+  background-color: #ffffff !important;
+  box-shadow: #2123261a 0 10px 10px -10px;
+}
+
+.nav-logo {
+  padding: 0 !important;
+  width: 90px !important;
+  height: auto !important;
+}
