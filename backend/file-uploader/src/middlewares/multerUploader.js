@@ -31,7 +31,10 @@ const fileFilter = (req, file, cb) => {
   const avatarMimeTypes = ["image/png", "image/jpg", "image/jpeg"];
   const docMimeTypes = ["application/pdf"];
 
-  if (avatarMimeTypes.includes(file.mimetype)) {
+  if (
+    avatarMimeTypes.includes(file.mimetype) ||
+    docMimeTypes.includes(file.mimetype)
+  ) {
     cb(null, true);
   } else {
     cb(
