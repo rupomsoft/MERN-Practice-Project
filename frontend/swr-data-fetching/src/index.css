@@ -1,0 +1,36 @@
+.nav {
+  background-color: #ffffff !important;
+  box-shadow: #2123261a 0 10px 10px -10px;
+}
+
+.nav-logo {
+  padding: 0 !important;
+  width: 90px !important;
+  height: auto !important;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.recorded-video {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.overlay-text {
+  color: #fff;
+}
