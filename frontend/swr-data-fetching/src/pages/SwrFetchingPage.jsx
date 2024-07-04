@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Alert, Container, Spinner } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import useSWR from "swr";
@@ -15,8 +15,24 @@ function SwrFetchingPage() {
     fetcher
   );
 
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error) {
+    return (
+      <div className="d-flex justify-content-center mt-4">
+        <Alert variant="danger">Failed to load. Please try again later.</Alert>
+      </div>
+    );
+  }
+
+  // Loading state
+  if (!data) {
+    return (
+      <div className="d-flex justify-content-center mt-4">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden"></span>
+        </Spinner>
+      </div>
+    );
+  }
 
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
