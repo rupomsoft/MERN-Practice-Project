@@ -1,12 +1,11 @@
 .nav {
-  background-color: #ffffff !important;
+  background-color: #000000 !important;
   box-shadow: #2123261a 0 10px 10px -10px;
 }
 
 .nav-logo {
   padding: 0 !important;
-  width: 90px !important;
-  height: auto !important;
+  height: 40px !important;
 }
 .video-container {
   position: relative;
@@ -17,6 +16,7 @@
 
 .recorded-video {
   width: 100%;
+  height: auto;
   border: 2px solid #ccc;
   border-radius: 10px;
 }
